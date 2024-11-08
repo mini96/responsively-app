@@ -401,11 +401,9 @@ class WebView extends Component {
       .catch(captureOnSentry);
   };
 
-  processAddressChangeEvent = ({address, force}) => {
+  processAddressChangeEvent = ({address}) => {
     if (address !== this.webviewRef.current.src) {
-      if (force) {
-        this.webviewRef.current.loadURL(address);
-      }
+      this.webviewRef.current.loadURL(address);
       this.setState({
         address,
       });
